@@ -1,0 +1,53 @@
+# ===================================================================
+# RAILWAY ENVIRONMENT VARIABLES - PRODUCTION TEMPLATE
+# Copy vào Railway Dashboard (RAW Editor) và thay thế các giá trị
+# ===================================================================
+
+# --- App Configuration ---
+APP_NAME=Laravel Ecommerce
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://REPLACE-WITH-YOUR-RAILWAY-URL.up.railway.app
+APP_KEY=base64:5Q3ZApHhK7A9+4f3hFnIiLOcwZoLp3FqvvO1lGiNj40=
+
+# --- Logging ---
+LOG_CHANNEL=stack
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
+# --- Database - Neon PostgreSQL ---
+# Thay thế bằng thông tin từ Neon Console → Connection Details
+DB_CONNECTION=pgsql
+DB_HOST=REPLACE-WITH-YOUR-NEON-HOST.neon.tech
+DB_PORT=5432
+DB_DATABASE=neondb
+DB_USERNAME=REPLACE-WITH-YOUR-USERNAME
+DB_PASSWORD=REPLACE-WITH-YOUR-PASSWORD
+
+# --- Cache & Session ---
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+FILESYSTEM_DISK=local
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+# --- Mail Configuration ---
+MAIL_MAILER=smtp
+MAIL_HOST=mailpit
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=hello@example.com
+MAIL_FROM_NAME=Laravel
+
+# --- CORS - Frontend URL ---
+# Thay thế bằng URL frontend Vercel của bạn
+FRONTEND_URL=https://REPLACE-WITH-YOUR-VERCEL-URL.vercel.app
+
+# --- Stripe Payment (Tùy chọn) ---
+# Uncomment và thêm keys nếu sử dụng Stripe
+# STRIPE_KEY=pk_test_your_stripe_public_key
+# STRIPE_SECRET=sk_test_your_stripe_secret_key
+# STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret

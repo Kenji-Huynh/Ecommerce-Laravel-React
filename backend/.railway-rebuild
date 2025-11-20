@@ -1,0 +1,2 @@
+# Force Railway rebuild - Nov 13 2025 11:10 AM
+# This file triggers a fresh build to clear cached nixpacks.toml

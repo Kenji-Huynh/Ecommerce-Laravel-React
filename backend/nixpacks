@@ -1,0 +1,2 @@
+# This file forces Railway to use Nixpacks builder ONLY
+# Prevents Docker detection and ensures proper build process

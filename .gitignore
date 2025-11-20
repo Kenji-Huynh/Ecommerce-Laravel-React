@@ -1,0 +1,9 @@
+backend/vendor/
+frontend/node_modules/
+vendor/
+**/.env
+backend/storage/
+frontend/dist/
+backend/public/storage/
+DEPLOYMENT_CHECKLIST.md
+backend/UPDATE_RAILWAY_VARIABLES.md
