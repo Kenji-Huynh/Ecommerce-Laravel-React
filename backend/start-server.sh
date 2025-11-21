@@ -37,6 +37,8 @@ php artisan config:cache || echo "⚠️  Config cache failed (continuing)"
 # 4. Run database migrations (allow failure)
 if [ "${DB_FRESH_MIGRATE}" = "true" ]; then
 	echo "🗄️  Running FRESH migrations (drops all tables)..."
+	# Reset any aborted transactions in PostgreSQL
+	psql -h ${DB_HOST} -U ${DB_USERNAME} -d ${DB_DATABASE} -c "ROLLBACK;" 2>/dev/null || true
 	php artisan migrate:fresh --force || echo "⚠️  Migration failed (continuing anyway)"
 elif [ "${RUN_MIGRATIONS_ON_START}" = "true" ]; then
 	echo "🗄️  Running database migrations..."
