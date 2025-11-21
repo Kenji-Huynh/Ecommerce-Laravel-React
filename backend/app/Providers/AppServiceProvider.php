@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\DB;
+use App\Database\Connectors\NeonPostgresConnector;
+use Illuminate\Database\PostgresConnection;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +19,12 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        // Register custom 'neon' database driver to handle endpoint option for older libpq
+        DB::extend('neon', function ($config, $name) {
+            $connector = new NeonPostgresConnector();
+            $pdo = $connector->connect($config);
+            return new PostgresConnection($pdo, $config['database'], $config['prefix'] ?? '', $config);
+        });
     }
 
     /**
