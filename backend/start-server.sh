@@ -46,12 +46,12 @@ else
 fi
 
 if [ "${RUN_SEED_ON_START}" = "true" ]; then
-	echo "🌱 Seeding database (Categories)..."
+	echo "🌱 Seeding database (Categories + Products)..."
 	php artisan db:seed --class=CategoriesTableSeeder --force || echo "⚠️  Categories seed skipped"
+	php artisan db:seed --class=ProductsTableSeeder --force || echo "⚠️  Products seed skipped"
 else
 	echo "⏭️  Skipping seeding (set RUN_SEED_ON_START=true to enable)"
 fi
-php artisan db:seed --class=ProductsTableSeeder --force || echo "⚠️  Products seed skipped"
 
 # 6. Start PHP development server
 echo "✅ Server starting on 0.0.0.0:${PORT:-8080}"
