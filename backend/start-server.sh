@@ -35,7 +35,10 @@ echo "⚡ Caching config..."
 php artisan config:cache || echo "⚠️  Config cache failed (continuing)"
 
 # 4. Run database migrations (allow failure)
-if [ "${RUN_MIGRATIONS_ON_START}" = "true" ]; then
+if [ "${DB_FRESH_MIGRATE}" = "true" ]; then
+	echo "🗄️  Running FRESH migrations (drops all tables)..."
+	php artisan migrate:fresh --force || echo "⚠️  Migration failed (continuing anyway)"
+elif [ "${RUN_MIGRATIONS_ON_START}" = "true" ]; then
 	echo "🗄️  Running database migrations..."
 	php artisan migrate --force || echo "⚠️  Migration failed (continuing anyway)"
 else
