@@ -1,0 +1,64 @@
+# ===================================================================
+# RENDER ENVIRONMENT VARIABLES - SUPABASE (POSTGRES)
+# Copy into Render Web Service -> Environment (replace values)
+# ===================================================================
+
+# --- App ---
+APP_NAME=Laravel Ecommerce
+APP_ENV=production
+APP_DEBUG=false
+# Replace with your Render service URL (https)
+APP_URL=https://REPLACE-BACKEND-ON-RENDER.onrender.com
+APP_KEY=
+APP_BASE_PATH=/
+
+# --- Logging ---
+LOG_CHANNEL=stack
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
+# --- Database - Supabase Postgres ---
+# Option A: Use DATABASE_URL directly (recommended by Supabase)
+# DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DB?sslmode=require
+
+# Option B: Use discrete variables
+DB_CONNECTION=pgsql
+DB_HOST=REPLACE-SUPABASE-HOST.supabase.co
+DB_PORT=5432
+DB_DATABASE=postgres
+DB_USERNAME=REPLACE-USER
+DB_PASSWORD=REPLACE-PASSWORD
+DB_SSLMODE=require
+
+# --- Cache & Session ---
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+FILESYSTEM_DISK=local
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+# --- Mail (dev defaults) ---
+MAIL_MAILER=smtp
+MAIL_HOST=mailpit
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=hello@example.com
+MAIL_FROM_NAME=Laravel
+
+# --- CORS ---
+# Replace with your Vercel frontend URL
+FRONTEND_URL=https://REPLACE-FRONTEND.vercel.app
+
+# --- Stripe ---
+# Use TEST keys unless you’re in production with live mode enabled
+STRIPE_SECRET=sk_test_YOUR_STRIPE_SECRET
+STRIPE_CURRENCY=usd
+# Optional exchange rate used in app logic
+PRICE_CONVERT_VND_TO_USD_RATE=0.00004
+
+# --- Optional ---
+# RUN_MIGRATIONS_ON_START=true
+# DB_FRESH_MIGRATE=false
